@@ -17,3 +17,11 @@ The goal of this project is to determine whether unit costs vary significantly b
 
 ## Statistical Methodology & Workflow
 This project utilizes a structured pipeline written in R to assess differences while verifying statistical assumptions.
+
+## Codebase Breakdown
+The R script is organized sequentially into the 'R/' directory:
+1. **`R/01_data_prep.R`**: Loads libraries (`afex`, `patchwork`, `tidyverse`, `ggplot2`), ingests `data.csv`, and calculates `Price_Per_Oz`.
+2. **`R/02_eda_summary.R`**: Calculates summary counts, mean/SD price tables, and builds histograms, density curves, and boxplot panels.
+3. **`R/03_pairwise_tests.R`**: Defines the `paired_test_report()` helper and calculates paired $t$-tests across all store combinations with Bonferroni adjustments.
+4. **`R/04_anova_analysis.R`**: Runs repeated-measures ANOVA (`aov`) and executes paired tests across store types and formula categories.
+5. **`R/05_assumption_checks.R`**: Defines `check_assumptions()`, evaluates normality via Q-Q plots, Shapiro-Wilk tests, and tests sphericity using `afex::aov_ez()`.
